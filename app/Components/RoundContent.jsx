@@ -3,7 +3,6 @@ import RESEARCH from "../icons/RESEARCH.png"
 import REACH from "../icons/REACH.png"
 import EFFICIENCY from "../icons/EFFICIENCY.png"
 import ETHICS from "../icons/ETHICS.png"
-import "../Css/RoundContent.css"
 export default function RoundContent() {
   return (
     <section className="py-16 bg-white">
