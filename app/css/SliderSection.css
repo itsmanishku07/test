@@ -1,0 +1,67 @@
+    /* styles/SliderSection.css */
+
+.slider-section {
+  background: #ffffff;
+}
+
+.slider-card {
+  background-color: #f9f9f9;
+  border: 3px solid #e5e7eb;
+  border-radius: 1.5rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  height: 250px;
+}
+
+.slider-card .icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 9999px;
+  background-color: #fff;
+  border: 5px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.4s ease;
+}
+
+.slider-card .title {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  transition: color 0.4s ease;
+}
+
+.slider-card .desc {
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.4s ease;
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+/* Hover Effects */
+.slider-card:hover {
+  background-color: #eef2ff;
+  border-color: #6366f1;
+}
+
+.slider-card:hover .icon-wrapper {
+  border-color: #6366f1;
+}
+
+.slider-card:hover .title {
+  color: #4338ca;
+}
+
+.slider-card:hover .desc {
+  opacity: 1;
+  max-height: 100px;
+}
