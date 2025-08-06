@@ -34,7 +34,9 @@ export default function Page() {
                     </h1>
                 </motion.div>
             </section>
-            <section className="w-full bg-white py-12 px-6 md:px-20">
+            <br />
+            <br />
+            <section className="w-full bg-white py-12 px-6 md:px-20 " id="about">
                 <div className="flex flex-col md:flex-row items-center gap-10">
                     <motion.div
                         initial={{ opacity: 0, x: -40 }}

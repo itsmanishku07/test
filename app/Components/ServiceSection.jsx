@@ -1,28 +1,30 @@
 import React from 'react';
-import img from "../icons/EFFICIENCY.png";
 import Image from 'next/image';
+import img from "../icons/EFFICIENCY.png";
 
+
+// ServiceItem Component - Now uses CSS variables for positioning
 const ServiceItem = ({ icon, title, rotation }) => {
   const style = {
-    transform: `rotate(${rotation}deg) translate(9rem) rotate(-${rotation}deg)`,
+    // We use a CSS variable `--radius` which will be defined by the parent
+    transform: `rotate(${rotation}deg) translate(var(--radius)) rotate(-${rotation}deg)`,
   };
 
   return (
     <div
-      className="absolute top-1/2 left-1/2 w-20 h-20 sm:w-20 sm:h-20 -translate-x-1/2 -translate-y-1/2"
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group"
       style={style}
     >
-      <div className="flex flex-col items-center justify-center text-center">
-        <div className="w-20 h-20 sm:w-20 sm:h-20 rounded-full border-2 border-gray-400 bg-white flex items-center justify-center">
-          <Image src={icon} alt={title} className="w-6 h-6 sm:w-13 sm:h-13 object-contain" />
+      <div className="flex flex-col items-center justify-center text-center transition-transform duration-300 ease-in-out group-hover:scale-110">
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gray-400 bg-white flex items-center justify-center shadow-md">
+          <Image src={icon} alt={title} className="w-8 h-8 md:w-10 md:h-10 object-contain" />
         </div>
-        <p className="mt-2 text-[10px] sm:text-xs text-black font-semibold text-center">{title}</p>
+        <p className="mt-2 text-[11px] md:text-xs text-black font-semibold">{title}</p>
       </div>
     </div>
   );
 };
 
-// Main Services Section
 export default function ServiceSection() {
   const services = [
     { icon: img, title: 'Warehouse Management', rotation: 0 },
@@ -34,21 +36,23 @@ export default function ServiceSection() {
   ];
 
   return (
-    <section className="bg-white min-h-screen flex items-center justify-center p-4">
-      <div
-        className="relative w-full max-w-7xl bg-cover bg-center rounded-xl overflow-hidden"
-        style={{
-          backgroundImage: "url('https://placehold.co/1200x600/2a2a2a/2a2a2a?text=.')",
-        }}
-      >
-        <div className="absolute inset-0 bg-gray-100"></div>
-
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center p-6 sm:p-10 md:p-16 text-black">
-          <div className="flex items-center justify-center h-[22rem] sm:h-[26rem] md:h-[30rem]">
-            <div className="relative w-[18rem] h-[18rem] sm:w-[22rem] sm:h-[22rem] md:w-[24rem] md:h-[24rem]">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white">
-                <h3 className="text-sm sm:text-base md:text-lg font-bold text-black font-extrabold">OUR CIRCLE</h3>
-                <h3 className="text-sm sm:text-base md:text-lg font-bold text-black font-extrabold">OF SERVICES</h3>
+    <section className="bg-gray-50 min-h-screen flex items-center justify-center p-4 sm:p-6 " id='services'>
+      <div className="w-full max-w-7xl mx-auto">
+    
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center text-black">
+          
+          <div className="flex items-center justify-center min-h-[300px] sm:min-h-[400px] md:min-h-[450px]">
+            
+            <div
+              className="relative 
+                         w-[14rem] h-[14rem] [--radius:7rem] 
+                         sm:w-[18rem] sm:h-[18rem] sm:[--radius:9rem] 
+                         md:w-[22rem] md:h-[22rem] md:[--radius:11rem]">
+                            
+              <div className="absolute inset-0 rounded-full bg-white/50 shadow-inner"></div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                <h3 className="text-base md:text-lg font-extrabold text-gray-800">OUR CIRCLE</h3>
+                <h3 className="text-base md:text-lg font-extrabold text-gray-800">OF SERVICES</h3>
               </div>
 
               {services.map((service, index) => (
@@ -57,21 +61,20 @@ export default function ServiceSection() {
             </div>
           </div>
 
-          <div className="text-white text-left max-w-2xl">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">SERVICES</h2>
-            <div className="w-16 sm:w-20 h-1 bg-orange-500 mt-2 mb-6"></div>
-            <p className="text-black mb-4 text-sm sm:text-base">
+          <div className="text-center lg:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">SERVICES</h2>
+            <div className="w-20 h-1 bg-orange-500 mt-3 mb-6 mx-auto lg:mx-0"></div>
+            <p className="text-gray-700 mb-4 text-sm md:text-base max-w-xl mx-auto lg:mx-0">
               We understand that time is of utmost essence, hence we provide absolute and quality service.
             </p>
-            <p className="text-black text-sm sm:text-base">
-              Pragati Technology bridges the gap in filling the constant talent needs to meet the workforce needs of organizations
-              through their entire life-cycles and across their hierarchy spectrum - ensuring that every position is
-              provided for, with the right fit for skill and will. We identify the best talents to work for you in highly
-              professional and organized establishments pan India through our services that include:
+            <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto lg:mx-0">
+              Pragati Technology bridges the gap in filling the constant talent needs to meet the workforce needs of organizations through their entire life-cycles and across their hierarchy spectrum - ensuring that every position is provided for, with the right fit for skill and will. We identify the best talents to work for you in highly professional and organized establishments pan India through our services that include:
             </p>
           </div>
+          
         </div>
       </div>
     </section>
   );
 }
+

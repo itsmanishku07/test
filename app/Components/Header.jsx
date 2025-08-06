@@ -3,14 +3,14 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
-import logo from "@/app/Images/plogo.png"
+import logo from "@/app/Images/logomain.png"
 
 const navLinks = [
   { href: '#', label: 'Home' },
-  { href: '#', label: 'About' },
-  { href: '#', label: 'Services' },
+  { href: '#about', label: 'About' },
+  { href: '#services', label: 'Services' },
   { href: '#', label: 'Portfolio' },
-  { href: '#', label: 'Contact' },
+  { href: '#footer', label: 'Contact' },
 ];
 
 function Navbar() {
@@ -26,7 +26,7 @@ function Navbar() {
         <div className="flex justify-between items-center h-22">
           <div className="flex-shrink-0">
             <a href="#" className="text-2xl font-bold text-indigo-600 hover:text-indigo-800 transition duration-300">
-              <Image src={logo} width={70} alt='logo'/>
+              <Image src={logo} width={150} alt='logo'/>
             </a>
           </div>
 
