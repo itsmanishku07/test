@@ -36,7 +36,7 @@ export default function ServiceSection() {
   ];
 
   return (
-    <section className="bg-gray-50 min-h-screen flex items-center justify-center p-4 sm:p-6 " id='services'>
+    <section className="bg-white min-h-screen flex items-center justify-center p-4 sm:p-6 " id='services'>
       <div className="w-full max-w-7xl mx-auto">
     
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center text-black">

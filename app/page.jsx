@@ -7,6 +7,8 @@ import About from "./Components/About";
 import RoundContent from "./Components/RoundContent";
 import SliderSection from "./Components/SliderSection";
 import ServiceSection from "./Components/ServiceSection";
+import ImageSlider from "./Components/SliderImage";
+import SliderContent from "./Components/SectionContent";
 
 export default function Page() {
     return (
@@ -81,6 +83,8 @@ export default function Page() {
 
             <RoundContent/>
             <ServiceSection/>
+            <SliderContent/>
+            <ImageSlider/>
         </div>
     );
 }
