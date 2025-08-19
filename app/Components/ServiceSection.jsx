@@ -2,11 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import img from "../icons/EFFICIENCY.png";
 
-
-// ServiceItem Component - Now uses CSS variables for positioning
 const ServiceItem = ({ icon, title, rotation }) => {
   const style = {
-    // We use a CSS variable `--radius` which will be defined by the parent
     transform: `rotate(${rotation}deg) translate(var(--radius)) rotate(-${rotation}deg)`,
   };
 
@@ -26,41 +23,48 @@ const ServiceItem = ({ icon, title, rotation }) => {
 };
 
 export default function ServiceSection() {
+  // ✅ Fixed rotations → evenly spaced at 45°
   const services = [
-    { icon: img, title: 'Warehouse Management', rotation: 0 },
-    { icon: img, title: 'CXO and Executive Search', rotation: 60 },
-    { icon: img, title: 'Compliance Management', rotation: 120 },
-    { icon: img, title: 'Temporary Staffing', rotation: 180 },
-    { icon: img, title: 'Volume Hiring', rotation: 240 },
-    { icon: img, title: 'Lateral Hiring', rotation: 300 },
+    { icon: img, title: 'BPO & Customer support Services', rotation: 0 },
+    { icon: img, title: 'Inbound & Outbound Call Center Services', rotation: 45 },
+    { icon: img, title: 'Telemarketing Services', rotation: 90 },
+    { icon: img, title: 'Customer Point Verification (CPV)', rotation: 135 },
+    { icon: img, title: 'Telecalling & Field Collection', rotation: 180 },
+    { icon: img, title: 'Temporary Staffing', rotation: 225 },
+    { icon: img, title: 'Volume Hiring', rotation: 270 },
+    { icon: img, title: 'Lateral Hiring', rotation: 315 },
   ];
 
   return (
-    <section className="bg-white min-h-screen flex items-center justify-center p-4 sm:p-6 " id='services'>
+    <section className="bg-white min-h-screen flex items-center justify-center p-4 sm:p-6" id="services">
       <div className="w-full max-w-7xl mx-auto">
-    
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center text-black">
           
+          {/* Circle with services */}
           <div className="flex items-center justify-center min-h-[300px] sm:min-h-[400px] md:min-h-[450px]">
-            
             <div
               className="relative 
                          w-[14rem] h-[14rem] [--radius:7rem] 
                          sm:w-[18rem] sm:h-[18rem] sm:[--radius:9rem] 
-                         md:w-[22rem] md:h-[22rem] md:[--radius:11rem]">
-                            
+                         md:w-[22rem] md:h-[22rem] md:[--radius:11rem]"
+            >
+              {/* Inner circle background */}
               <div className="absolute inset-0 rounded-full bg-white/50 shadow-inner"></div>
+
+              {/* Center text */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                 <h3 className="text-base md:text-lg font-extrabold text-gray-800">OUR CIRCLE</h3>
                 <h3 className="text-base md:text-lg font-extrabold text-gray-800">OF SERVICES</h3>
               </div>
 
+              {/* Service items around the circle */}
               {services.map((service, index) => (
                 <ServiceItem key={index} {...service} />
               ))}
             </div>
           </div>
 
+          {/* Right-side description */}
           <div className="text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">SERVICES</h2>
             <div className="w-20 h-1 bg-orange-500 mt-3 mb-6 mx-auto lg:mx-0"></div>
@@ -71,10 +75,9 @@ export default function ServiceSection() {
               Pragati Technology bridges the gap in filling the constant talent needs to meet the workforce needs of organizations through their entire life-cycles and across their hierarchy spectrum - ensuring that every position is provided for, with the right fit for skill and will. We identify the best talents to work for you in highly professional and organized establishments pan India through our services that include:
             </p>
           </div>
-          
+
         </div>
       </div>
     </section>
   );
 }
-
